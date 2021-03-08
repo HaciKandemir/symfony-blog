@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="{{ inSite.getInSiteVal('description') }}">
+    <meta name="author" content="{{ inSite.getInSiteVal('author') }}">
+    <meta name="keywords" content="{{ inSite.getInSiteVal('keywords') }}">
 
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}{{ inSite.getInSiteVal('title') }}{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">

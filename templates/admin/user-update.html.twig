@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    {% include 'inc/navigation.html.twig' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'inc/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success text-center">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'inc/footer.html.twig' %}
+{% endblock %}

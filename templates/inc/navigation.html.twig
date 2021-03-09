@@ -19,7 +19,12 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                             {% if is_granted('ROLE_ADMIN') %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/admin/site-settings"><i class="fa fa-btn fa-wrench"></i> Site Ayarları</a>
+                                    <a class="nav-link" href="/admin/site-settings"><i class="fa fa-btn fa-wrench"></i>
+                                        Site Ayarları</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/admin/user-list"><i class="fa fa-btn fa-users"></i>
+                                        Kullanıcılar</a>
                                 </li>
                             {% endif %}
 

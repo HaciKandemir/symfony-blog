@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    {% include 'inc/navigation.html.twig' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'inc/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% for label, messages in app.flashes(['success', 'warning']) %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }} text-center">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Roles</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in rows %}
+                            <tr>
+                                <td>
+                                    {%- for rol in row.roles -%}
+                                        {{- rol|replace({'ROLE_': ''})|capitalize -}}
+                                        {{- not loop.last ? ',' -}}
+                                    {%- endfor -%}
+                                </td>
+                                <td>{{ row.email }}</td>
+                                <td>
+                                    <a href="/admin/user/{{ row.id }}/update" class="btn btn-primary circle"><i class="fa fa-edit"></i></a>
+                                    <a href="/admin/user/{{ row.id }}/delete" class="btn btn-danger circle"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'inc/footer.html.twig' %}
+{% endblock %}
